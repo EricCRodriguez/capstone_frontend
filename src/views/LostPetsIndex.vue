@@ -1,27 +1,27 @@
 <template>
   <div class="container">
     <h1>Add Your Lost Pet</h1>
-    Name:
-    <input type="text" v-model="newLost_PetName" />
-    Address:
-    <input type="text" v-model="newLost_PetAddress" />
-    Age:
-    <input type="text" v-model="newLost_PetAge" />
-    Search Area:
-    <input type="text" v-model="newLost_PetSearchArea" />
-    Breed:
-    <input type="text" v-model="newLost_PetBreed" />
-    Color:
-    <input type="text" v-model="newLost_PetColor" />
-    Size:
-    <input type="text" v-model="newLost_PetSize" />
-    Gender:
-    <input type="text" v-model="newLost_PetGender" />
-    Behaviour Type:
-    <input type="text" v-model="newLost_PetBehaviourType" />
-    Picture:
-    <input type="text" v-model="newLost_PetPicture" />
-    <button v-on:click="createLost_Pet()">Create Lost Pet</button>
+    <p>
+      Name:
+      <input type="text" v-model="newLost_PetName" />
+      Address:
+      <input type="text" v-model="newLost_PetAddress" />
+      Age:
+      <input type="text" v-model="newLost_PetAge" />
+      Breed:
+      <input type="text" v-model="newLost_PetBreed" />
+      Color:
+      <input type="text" v-model="newLost_PetColor" />
+      Size:
+      <input type="text" v-model="newLost_PetSize" />
+      Gender:
+      <input type="text" v-model="newLost_PetGender" />
+      Behaviour Type:
+      <input type="text" v-model="newLost_PetBehaviourType" />
+      Picture:
+      <input type="text" v-model="newLost_PetPicture" />
+      <button v-on:click="createLost_Pet()">Create Lost Pet</button>
+    </p>
 
     <!-- Portfolio Section -->
     <section class="page-section portfolio" id="portfolio">
@@ -53,7 +53,6 @@
                   <p>Size: {{ lost_pet.size }}</p>
                   <p>Gender: {{ lost_pet.gender }}</p>
                   <p>Characteristics: {{ lost_pet.behaviour_type }}</p>
-                  <button type="button" class=
                 </div>
               </div>
               <img class="img-fluid" v-bind:src="lost_pet.picture" alt="" />

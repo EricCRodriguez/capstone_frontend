@@ -1,78 +1,79 @@
 <template>
   <div class="container">
-    <h1>Add A Found Pet</h1>
-    <div>
-      Address:
-      <input type="text" v-model="newFound_PetAddress" />
-      Breed:
-      <input type="text" v-model="newFound_PetBreed" />
-      Color:
-      <input type="text" v-model="newFound_PetColor" />
-      Size:
-      <input type="text" v-model="newFound_PetSize" />
-      Gender:
-      <input type="text" v-model="newFound_PetGender" />
-      Picture:
-      <input type="text" v-model="newFound_PetPicture" />
-      Add_Info:
-      <input type="text" v-model="newFound_PetAddInfo" />
-      Shelter_Info:
-      <input type="text" v-model="newFound_PetShelterInfo" />
-      <button v-on:click="createFound_Pet()">Add Found Pet</button>
+    <h1>Add A Pet</h1>
+    Found Location:
+    <input type="text" v-model="newFound_PetAddress" />
+    Breed:
+    <input type="text" v-model="newFound_PetBreed" />
+    Color:
+    <input type="text" v-model="newFound_PetColor" />
+    Size:
+    <input type="text" v-model="newFound_PetSize" />
+    Gender:
+    <input type="text" v-model="newFound_PetGender" />
+    Picture:
+    <input type="text" v-model="newFound_PetPicture" />
+    <button v-on:click="createFound_Pet()">Create Found Pet</button>
 
-      <!-- Portfolio Section -->
-      <section class="page-section portfolio" id="portfolio">
-        <div class="container">
-          <!-- Portfolio Section Heading -->
-          <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Found Pets</h2>
+    <!-- Portfolio Section -->
+    <section class="page-section portfolio" id="portfolio">
+      <div class="container">
+        <!-- Portfolio Section Heading -->
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Found Pets</h2>
 
-          <!-- Icon Divider -->
-          <div class="divider-custom">
-            <div class="divider-custom-line"></div>
-            <div class="divider-custom-icon">
-              <i class="fas fa-star"></i>
-            </div>
-            <div class="divider-custom-line"></div>
+        <!-- Icon Divider -->
+        <div class="divider-custom">
+          <div class="divider-custom-line"></div>
+          <div class="divider-custom-icon">
+            <i class="fas fa-star"></i>
           </div>
+          <div class="divider-custom-line"></div>
+        </div>
+      </div>
 
-          <!-- Portfolio Grid Items -->
-          <div class="row">
-            <!-- Portfolio Item 1 -->
-            <div v-for="found_pet in found_pets" class="col-md-6 col-lg-4">
-              <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
-                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                  <div class="portfolio-item-caption-content text-center text-white">
-                    <p>Pet Name: {{ found_pet.name }}</p>
-
-                    <p>Address:{{ found_pet.address }}</p>
-                    <p>Breed: {{ found_pet.breed }}</p>
-                    <p>Color: {{ found_pet.color }}</p>
-                    <p>Size: {{ found_pet.size }}</p>
-                    <p>Gender: {{ found_pet.gender }}</p>
-                    <button type="button" class=
-                  </div>
-                </div>
-                <img class="img-fluid" v-bind:src="found_pet.picture" alt="" />
+      <!-- Portfolio Grid Items -->
+      <div class="row">
+        <!-- Portfolio Item 1 -->
+        <div v-for="found_pet in found_pets" class="col-md-6 col-lg-4">
+          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <p>Location Found:{{ found_pet.address }}</p>
+                <p>Breed: {{ found_pet.breed }}</p>
+                <p>Color: {{ found_pet.color }}</p>
+                <p>Size: {{ found_pet.size }}</p>
+                <p>Gender: {{ found_pet.gender }}</p>
+                <p>Characteristics: {{ found_pet.behaviour_type }}</p>
               </div>
+              <img class="img-fluid" v-bind:src="found_pet.picture" alt="" />
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
 
     <h1>All Found Pets</h1>
     <div v-for="found_pet in found_pets">
+      <img v-bind:src="found_pet.picture" alt="" />
       <h2>{{ found_pet.address }}</h2>
+      <h2>{{ found_pet.age }}</h2>
       <h2>{{ found_pet.breed }}</h2>
       <h2>{{ found_pet.color }}</h2>
       <h2>{{ found_pet.size }}</h2>
       <h2>{{ found_pet.gender }}</h2>
       <h2>{{ found_pet.picture }}</h2>
-      <h2>{{ found_pet.add_info }}</h2>
-      <h2>{{ found_pet.shelter_info }}</h2>
+      <router-link v-bind:to="`/found_pets/:id${found_pet.id}`">More details</router-link>
     </div>
   </div>
 </template>
+
+<style>
+.portfolio-item img.img-fluid {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+</style>
 
 <script>
 import axios from "axios";
