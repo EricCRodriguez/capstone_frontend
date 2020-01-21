@@ -44,15 +44,25 @@
           <div v-for="lost_pet in lost_pets" class="col-md-6 col-lg-4">
             <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
               <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                <div class="portfolio-item-caption-content text-center text-white">
-                  <p>Pet Name: {{ lost_pet.name }}</p>
-                  <p>Age: {{ lost_pet.age }}</p>
-                  <p>Address:{{ lost_pet.address }}</p>
-                  <p>Breed: {{ lost_pet.breed }}</p>
-                  <p>Color: {{ lost_pet.color }}</p>
-                  <p>Size: {{ lost_pet.size }}</p>
-                  <p>Gender: {{ lost_pet.gender }}</p>
-                  <p>Characteristics: {{ lost_pet.behaviour_type }}</p>
+                <div class="portfolio-item-caption-content text-white">
+                  <span>
+                    <a v-bind:href="`/lost_pets/${lost_pet.id}`" style="color: white;">Pet Name: {{ lost_pet.name }}</a>
+                  </span>
+                  <br />
+                  <span>Age: {{ lost_pet.age }}</span>
+                  <br />
+                  <span>Address:{{ lost_pet.address }}</span>
+                  <br />
+                  <span>Breed: {{ lost_pet.breed }}</span>
+                  <br />
+                  <span>Color: {{ lost_pet.color }}</span>
+                  <br />
+                  <span>Size: {{ lost_pet.size }}</span>
+                  <br />
+                  <span>Gender: {{ lost_pet.gender }}</span>
+                  <br />
+                  <span>Characteristics: {{ lost_pet.behaviour_type }}</span>
+                  <br />
                 </div>
               </div>
               <img class="img-fluid" v-bind:src="lost_pet.picture" alt="" />
@@ -61,22 +71,6 @@
         </div>
       </div>
     </section>
-
-    <h1>All Lost Pets</h1>
-    <div v-for="lost_pet in lost_pets">
-      <img v-bind:src="lost_pet.picture" alt="" />
-      <h2>{{ lost_pet.name }}</h2>
-      <h2>{{ lost_pet.address }}</h2>
-      <h2>{{ lost_pet.age }}</h2>
-      <h2>{{ lost_pet.search_area }}</h2>
-      <h2>{{ lost_pet.breed }}</h2>
-      <h2>{{ lost_pet.color }}</h2>
-      <h2>{{ lost_pet.size }}</h2>
-      <h2>{{ lost_pet.gender }}</h2>
-      <h2>{{ lost_pet.behaviour_type }}</h2>
-      <h2>{{ lost_pet.picture }}</h2>
-      <router-link v-bind:to="`/lost_pets/:id${lost_pet.id}`">More details</router-link>
-    </div>
   </div>
 </template>
 

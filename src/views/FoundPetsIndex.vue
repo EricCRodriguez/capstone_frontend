@@ -29,21 +29,27 @@
           </div>
           <div class="divider-custom-line"></div>
         </div>
-      </div>
 
-      <!-- Portfolio Grid Items -->
-      <div class="row">
-        <!-- Portfolio Item 1 -->
-        <div v-for="found_pet in found_pets" class="col-md-6 col-lg-4">
-          <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
-            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-              <div class="portfolio-item-caption-content text-center text-white">
-                <p>Location Found:{{ found_pet.address }}</p>
-                <p>Breed: {{ found_pet.breed }}</p>
-                <p>Color: {{ found_pet.color }}</p>
-                <p>Size: {{ found_pet.size }}</p>
-                <p>Gender: {{ found_pet.gender }}</p>
-                <p>Characteristics: {{ found_pet.behaviour_type }}</p>
+        <!-- Portfolio Grid Items -->
+        <div class="row">
+          <!-- Portfolio Item 1 -->
+          <div v-for="found_pet in found_pets" class="col-md-6 col-lg-4">
+            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="portfolio-item-caption-content text-center text-white">
+                  <span>Location Found:{{ found_pet.address }}</span>
+                  <br />
+                  <span>Breed: {{ found_pet.breed }}</span>
+                  <br />
+                  <span>Color: {{ found_pet.color }}</span>
+                  <br />
+                  <span>Size: {{ found_pet.size }}</span>
+                  <br />
+                  <span>Gender: {{ found_pet.gender }}</span>
+                  <br />
+                  <span>Characteristics: {{ found_pet.behaviour_type }}</span>
+                  <br />
+                </div>
               </div>
               <img class="img-fluid" v-bind:src="found_pet.picture" alt="" />
             </div>
@@ -51,19 +57,6 @@
         </div>
       </div>
     </section>
-
-    <h1>All Found Pets</h1>
-    <div v-for="found_pet in found_pets">
-      <img v-bind:src="found_pet.picture" alt="" />
-      <h2>{{ found_pet.address }}</h2>
-      <h2>{{ found_pet.age }}</h2>
-      <h2>{{ found_pet.breed }}</h2>
-      <h2>{{ found_pet.color }}</h2>
-      <h2>{{ found_pet.size }}</h2>
-      <h2>{{ found_pet.gender }}</h2>
-      <h2>{{ found_pet.picture }}</h2>
-      <router-link v-bind:to="`/found_pets/:id${found_pet.id}`">More details</router-link>
-    </div>
   </div>
 </template>
 

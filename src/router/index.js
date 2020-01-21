@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import UsersShow from "../views/UsersShow.vue";
 import LostPetsIndex from "../views/LostPetsIndex.vue";
 import LostPetsShow from "../views/LostPetsShow.vue";
 import FoundPetsIndex from "../views/FoundPetsIndex.vue";
@@ -30,6 +31,11 @@ const routes = [
     path: "/lost_pets/:id",
     name: "lost_pets-show",
     component: LostPetsShow
+  },
+  {
+    path: "/users/:id",
+    name: "users-show",
+    component: UsersShow
   },
   {
     path: "/about",
