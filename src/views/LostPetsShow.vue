@@ -3,7 +3,8 @@
     <h1>Show Lost Pet</h1>
     <img v-bind:src="lost_pet.picture" alt="" />
 
-    <p>{{ lost_pet.name }}</p>
+    <h2>{{ lost_pet.name }}</h2>
+    <h4>Submitted by {{ lost_pet.user_name }}</h4>
     <p>{{ lost_pet.address }}</p>
     <p>{{ lost_pet.age }}</p>
     <p>{{ lost_pet.search_area }}</p>
@@ -32,12 +33,7 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      lost_pet: {}
-    };
-  },
-  function() {
-    return {
-      message: [],
+      lost_pet: {},
       newMessage: "",
       newMessagePicture: ""
     };
@@ -50,8 +46,9 @@ export default {
   methods: {
     createMessage: function() {
       var params = {
-        body: this.newMessageBodies,
-        picture: this.newMessagePicture
+        body: this.newMessage,
+        picture: this.newMessagePicture,
+        receiver_id: this.lost_pet.user_id
       };
       axios.post("/api/message_bodies", params).then(response => {
         this.message_bodies.push(response.data);

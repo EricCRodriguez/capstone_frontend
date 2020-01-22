@@ -1,12 +1,19 @@
 <template>
   <div class="container">
     <h1>Profile</h1>
-    <h2>{{ user.first_name }}</h2>
-    <h2>{{ user.last_name }}</h2>
+    <p>{{ user.first_name }}</p>
+    <p>{{ user.last_name }}</p>
     <p>Email: {{ user.email }}</p>
-    <p>Sent messages: {{ user.sent_messages }}</p>
-    <p>Recieved messages: {{ user.recieved_messages }}</p>
-
+    <h2>Sent messages ({{ user.sent_messages.length }})</h2>
+    <!-- v-for="sent_message in user.sent_messages" -->
+    <div v-for="message in user.sent_messages">
+      <p>{{ message.created_at }} {{ message.receiver_name }}: {{ message.body }}</p>
+    </div>
+    <h2>Recieved messages ({{ user.received_messages.length }})</h2>
+    <!-- v-for="recieved_message in user.received_messages" -->
+    <div v-for="message in user.received_messages">
+      <p>{{ message.created_at }} {{ message.sender_name }}: {{ message.body }}</p>
+    </div>
     <router-link to="/users">Back to all users</router-link>
   </div>
 </template>
@@ -16,7 +23,9 @@ import axios from "axios";
 export default {
   data: function() {
     return {
-      user: {}
+      user: { sent_messages: [], received_messages: [] },
+      sent_message: [],
+      recieved_message: []
     };
   },
   created: function() {
@@ -24,6 +33,10 @@ export default {
       this.user = response.data;
     });
   },
-  methods: {}
+  methods: {
+    MessageButton: function() {
+      console.log("create message");
+    }
+  }
 };
 </script>

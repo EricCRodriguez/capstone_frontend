@@ -1,27 +1,45 @@
 <template>
   <div class="container">
     <h1>Add Your Lost Pet</h1>
-    <p>
-      Name:
-      <input type="text" v-model="newLost_PetName" />
-      Address:
-      <input type="text" v-model="newLost_PetAddress" />
-      Age:
-      <input type="text" v-model="newLost_PetAge" />
-      Breed:
-      <input type="text" v-model="newLost_PetBreed" />
-      Color:
-      <input type="text" v-model="newLost_PetColor" />
-      Size:
-      <input type="text" v-model="newLost_PetSize" />
-      Gender:
-      <input type="text" v-model="newLost_PetGender" />
-      Behaviour Type:
-      <input type="text" v-model="newLost_PetBehaviourType" />
-      Picture:
-      <input type="text" v-model="newLost_PetPicture" />
-      <button v-on:click="createLost_Pet()">Create Lost Pet</button>
-    </p>
+    <form v-on:submit.prevent="createLost_Pet()">
+      <div class="form-group">
+        Name:
+        <input type="text" class="form-control" v-model="newLost_PetName" />
+      </div>
+      <div class="form-group">
+        Address:
+        <input type="text" class="form-control" v-model="newLost_PetAddress" />
+      </div>
+      <div class="form-group">
+        Age:
+        <input type="text" class="form-control" v-model="newLost_PetAge" />
+      </div>
+      <div class="form-group">
+        Breed:
+        <input type="text" class="form-control" v-model="newLost_PetBreed" />
+      </div>
+      <div class="form-group">
+        Color:
+        <input type="text" class="form-control" v-model="newLost_PetColor" />
+      </div>
+      <div class="form-group">
+        Size:
+        <input type="text" class="form-control" v-model="newLost_PetSize" />
+      </div>
+      <div class="form-group">
+        Gender:
+        <input type="text" class="form-control" v-model="newLost_PetGender" />
+      </div>
+      <div class="form-group">
+        Behaviour Type:
+        <input type="text" class="form-control" v-model="newLost_PetBehaviourType" />
+      </div>
+      <div class="form-group">
+        Picture:
+        <input type="text" class="form-control" v-model="newLost_PetPicture" />
+      </div>
+      <button type="submit">Create Lost Pet</button>
+    </form>
 
     <!-- Portfolio Section -->
     <section class="page-section portfolio" id="portfolio">
@@ -48,6 +66,8 @@
                   <span>
                     <a v-bind:href="`/lost_pets/${lost_pet.id}`" style="color: white;">Pet Name: {{ lost_pet.name }}</a>
                   </span>
+                  <br />
+                  <span>User: {{ lost_pet.user_name }}</span>
                   <br />
                   <span>Age: {{ lost_pet.age }}</span>
                   <br />

@@ -1,19 +1,33 @@
 <template>
   <div class="container">
     <h1>Add A Pet</h1>
-    Found Location:
-    <input type="text" v-model="newFound_PetAddress" />
-    Breed:
-    <input type="text" v-model="newFound_PetBreed" />
-    Color:
-    <input type="text" v-model="newFound_PetColor" />
-    Size:
-    <input type="text" v-model="newFound_PetSize" />
-    Gender:
-    <input type="text" v-model="newFound_PetGender" />
-    Picture:
-    <input type="text" v-model="newFound_PetPicture" />
-    <button v-on:click="createFound_Pet()">Create Found Pet</button>
+    <form v-on:submit.prevent="createFound_Pet()">
+      <div class="form-group">
+        Found Location:
+        <input type="text" class="form-control" v-model="newFound_PetAddress" />
+      </div>
+      <div class="form-group">
+        Breed:
+        <input type="text" class="form-control" v-model="newFound_PetBreed" />
+      </div>
+      <div class="form-group">
+        Color:
+        <input type="text" class="form-control" v-model="newFound_PetColor" />
+      </div>
+      <div class="form-group">
+        Size:
+        <input type="text" class="form-control" v-model="newFound_PetSize" />
+      </div>
+      <div class="form-group">
+        Gender:
+        <input type="text" class="form-control" v-model="newFound_PetGender" />
+      </div>
+      <div class="form-group">
+        Picture:
+        <input type="text" class="form-control" v-model="newFound_PetPicture" />
+      </div>
+      <button type="submit">>Create Found Pet</button>
+    </form>
 
     <!-- Portfolio Section -->
     <section class="page-section portfolio" id="portfolio">
