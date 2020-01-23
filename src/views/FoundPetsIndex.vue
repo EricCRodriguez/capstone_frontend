@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Add A Pet</h1>
+    <h1>Add A Found Pet</h1>
     <form v-on:submit.prevent="createFound_Pet()">
       <div class="form-group">
         Found Location:
@@ -51,18 +51,23 @@
             <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
               <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                 <div class="portfolio-item-caption-content text-center text-white">
-                  <span>Location Found:{{ found_pet.address }}</span>
+                  <span>
+                    <a v-bind:href="`/found_pets/${found_pet.id}`" style="color: white;">
+                      Location Found:{{ found_pet.address }}
+                    </a>
+                  </span>
                   <br />
-                  <span>Breed: {{ found_pet.breed }}</span>
-                  <br />
-                  <span>Color: {{ found_pet.color }}</span>
-                  <br />
-                  <span>Size: {{ found_pet.size }}</span>
-                  <br />
-                  <span>Gender: {{ found_pet.gender }}</span>
-                  <br />
-                  <span>Characteristics: {{ found_pet.behaviour_type }}</span>
-                  <br />
+                  <div class="pet-info">
+                    <span>Breed: {{ found_pet.breed }}</span>
+                    <br />
+                    <span>Color: {{ found_pet.color }}</span>
+                    <br />
+                    <span>Size: {{ found_pet.size }}</span>
+                    <br />
+                    <span>Gender: {{ found_pet.gender }}</span>
+                    <br />
+                    <span>Characteristics: {{ found_pet.behaviour_type }}</span>
+                  </div>
                 </div>
               </div>
               <img class="img-fluid" v-bind:src="found_pet.picture" alt="" />
@@ -79,6 +84,9 @@
   height: 300px;
   width: 100%;
   object-fit: cover;
+}
+.pet-info {
+  font-size: 0.7em;
 }
 </style>
 

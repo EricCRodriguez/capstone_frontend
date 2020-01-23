@@ -67,22 +67,23 @@
                     <a v-bind:href="`/lost_pets/${lost_pet.id}`" style="color: white;">Pet Name: {{ lost_pet.name }}</a>
                   </span>
                   <br />
-                  <span>User: {{ lost_pet.user_name }}</span>
-                  <br />
-                  <span>Age: {{ lost_pet.age }}</span>
-                  <br />
-                  <span>Address:{{ lost_pet.address }}</span>
-                  <br />
-                  <span>Breed: {{ lost_pet.breed }}</span>
-                  <br />
-                  <span>Color: {{ lost_pet.color }}</span>
-                  <br />
-                  <span>Size: {{ lost_pet.size }}</span>
-                  <br />
-                  <span>Gender: {{ lost_pet.gender }}</span>
-                  <br />
-                  <span>Characteristics: {{ lost_pet.behaviour_type }}</span>
-                  <br />
+                  <div class="pet-info">
+                    <span>User: {{ lost_pet.user_name }}</span>
+                    <br />
+                    <span>Age: {{ lost_pet.age }}</span>
+                    <br />
+                    <span>Address:{{ lost_pet.address }}</span>
+                    <br />
+                    <span>Breed: {{ lost_pet.breed }}</span>
+                    <br />
+                    <span>Color: {{ lost_pet.color }}</span>
+                    <br />
+                    <span>Size: {{ lost_pet.size }}</span>
+                    <br />
+                    <span>Gender: {{ lost_pet.gender }}</span>
+                    <br />
+                    <span>Characteristics: {{ lost_pet.behaviour_type }}</span>
+                  </div>
                 </div>
               </div>
               <img class="img-fluid" v-bind:src="lost_pet.picture" alt="" />
@@ -99,6 +100,9 @@
   height: 300px;
   width: 100%;
   object-fit: cover;
+}
+.pet-info {
+  font-size: 0.7em;
 }
 </style>
 

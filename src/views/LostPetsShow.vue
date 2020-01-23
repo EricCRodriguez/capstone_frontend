@@ -3,27 +3,27 @@
     <h1>Show Lost Pet</h1>
     <img v-bind:src="lost_pet.picture" alt="" />
 
-    <h2>{{ lost_pet.name }}</h2>
+    <h2>Name:{{ lost_pet.name }}</h2>
     <h4>Submitted by {{ lost_pet.user_name }}</h4>
-    <p>{{ lost_pet.address }}</p>
-    <p>{{ lost_pet.age }}</p>
-    <p>{{ lost_pet.search_area }}</p>
-    <p>{{ lost_pet.breed }}</p>
-    <p>{{ lost_pet.color }}</p>
-    <p>{{ lost_pet.size }}</p>
-    <p>{{ lost_pet.gender }}</p>
-    <p>{{ lost_pet.behaviour_type }}</p>
-    <p>{{ lost_pet.picture }}</p>
+    <p>Address: {{ lost_pet.address }}</p>
+    <p>Age: {{ lost_pet.age }}</p>
+    <p>Breed: {{ lost_pet.breed }}</p>
+    <p>Color: {{ lost_pet.color }}</p>
+    <p>Size: {{ lost_pet.size }}</p>
+    <p>Gender: {{ lost_pet.gender }}</p>
+    <p>Behaviour Type: {{ lost_pet.behaviour_type }}</p>
 
     <div>
       <h2>Send a message</h2>
     </div>
     <div>
       Message:
-      <input type="text" v-model="newMessage" />
-      <button v-on:click="createMessage()">Send Message</button>
-      <router-link to="/lost_pets">Back to all lost_pets</router-link>
+      <input class="form-control" type="text" v-model="newMessage" />
+      <br />
+      <button class="btn btn-primary" v-on:click="createMessage()">Send Message</button>
     </div>
+    <br />
+    <router-link to="/lost_pets">Back to all lost_pets</router-link>
   </div>
 </template>
 
